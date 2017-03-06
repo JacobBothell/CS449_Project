@@ -12,29 +12,31 @@
 
 
     <com.jjoe64.graphview.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:id="@+id/pressure"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/humidity"
+        android:layout_toEndOf="@+id/humidity"
+        android:layout_alignTop="@+id/humidity" />
+
+    <TextView
+        android:text="@string/nError"
+        android:textSize="50sp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/temp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+
+    <com.jjoe64.graphview.GraphView
         android:layout_width="170dp"
         android:layout_height="200dip"
         android:id="@+id/humidity"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <com.jjoe64.graphview.GraphView
-        android:layout_width="170dp"
-        android:layout_height="200dip"
-        android:id="@+id/pressure"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/temp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 </RelativeLayout>

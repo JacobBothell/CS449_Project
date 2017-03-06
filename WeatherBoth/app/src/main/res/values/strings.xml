@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherBoth</string>
+    <string name="nError">Network Error</string>
 </resources>

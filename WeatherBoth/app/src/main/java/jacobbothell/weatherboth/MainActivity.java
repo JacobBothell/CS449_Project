@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //creates everything data-centric items
-        thingspeak();
+        thingspeak(100);
 
     }
 
@@ -56,15 +56,17 @@ public class MainActivity extends AppCompatActivity {
         graph.addSeries(series);
     }
 
-    void thingspeak() {
+    //method gets the data
+    //    updates the temperature data field and passes data to graph function
+    void thingspeak(int dataPoints) {
         final TextView temp = (TextView) findViewById(R.id.temp);
 
         //instantiate the request queue
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://api.thingspeak.com/channels/172443/feed.json?key=PEA1BQZRVR62YHWK&results=100";
+        String url = "https://api.thingspeak.com/channels/172443/feed.json?key=PEA1BQZRVR62YHWK&results=";
 
         //Request a string response from url
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url+String.valueOf(dataPoints), null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 //getting the data out of the response
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         //puts the current temp data into the view
                         if(i==0)
                         {
-                            temp.setText(tempo.getString("field1"));
+                            temp.setText(tempo.getInt("field1")+R.string.degree+"F");
                         }
                         //saves the data in the array
                         //humidity data
